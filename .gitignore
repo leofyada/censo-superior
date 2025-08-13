@@ -5,6 +5,7 @@
 data/
 .DS_Store
 .Renviron
+.Rprofile
 
 ### R ###
 # History files
