@@ -21,7 +21,7 @@ flowchart LR
 
 ## 📂 Estrutura de Pastas (S3)
 
-s3://<bucket>/censo-superior/
+s3://profissaodocente-inepdata-s3/inep/
 
 - bronze/   # dados brutos convertidos para Parquet e particionados
 - silver/   # dados transformados e limpos (outputs de CTAS ou DuckDB)
