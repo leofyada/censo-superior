@@ -32,14 +32,14 @@ s3://profissaodocente-inepdata-s3/inep/
 - Linguagem: R
 - Leitura/Escrita Parquet: arrow
 - Manipulação de dados: dplyr
-- Upload para AWS S3: arrow S3 support ou aws.s3
+- Upload para AWS S3: arrow S3 
 
 ## 📋 Passos do Pipeline
 
 1. Download dos microdados do INEP (arquivo ZIP).
 2. Extração dos CSVs relevantes.
 3. Conversão para Parquet com particionamento (usando arrow no R).
-4. Upload dos arquivos para S3 (direto com write_dataset() ou via aws.s3).
+4. Upload dos arquivos para S3 (direto com write_dataset()).
 
 ## 📜 Licença
 
