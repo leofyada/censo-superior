@@ -6,18 +6,7 @@ Este projeto cria um **pipeline simples na nuvem** para análise de microdados d
 
 ## 🚀 Fluxo do Pipeline
 
-```mermaid
-flowchart LR
-  subgraph Local
-    ZIP[INEP zip files]    
-    CSV1[CSV A]
-    CSV2[CSV B]
-  end
-
-  subgraph AWS[S3 Data Lake]
-    B[bronze]
-  end
-```
+<img width="626" height="321" alt="Pipeline - Censo Superior" src="https://github.com/user-attachments/assets/0937042d-618d-4481-878c-bed49365b29f" />
 
 ## 📂 Estrutura de Pastas (S3)
 
