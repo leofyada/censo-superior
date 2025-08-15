@@ -13,7 +13,7 @@ regras <- validator(
   # Total de ingressantes em cursos de graduação à distância
   sum(QT_ING[TP_DIMENSAO %in% c(2, 3, 4)]) == 3314402,
   # Total de matrículas em cursos de pedagogia
-  sum(subset(df_prata, NO_CINE_ROTULO=="Pedagogia" & TP_DIMENSAO %in% c(2, 3, 4))$QT_MAT),
+  sum(QT_MAT[NO_CINE_ROTULO=="Pedagogia" & TP_DIMENSAO %in% c(2, 3, 4)]) == 689663,
   # Total de cursos de graduação a distância
   sum(QT_CURSO) == 10554
 )
@@ -30,5 +30,3 @@ resultado
 caminho_df_prata <- here("data", "prata", glue("{as.integer(format(Sys.Date(), '%Y%m%d'))}_base_final.xlsx"))
 # Exporta arquivo
 writexl::write_xlsx(df_prata, path = caminho_df_prata)
-
-
