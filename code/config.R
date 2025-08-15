@@ -16,4 +16,5 @@ importar_pacotes <- function(pacotes) {
 pacotes <- c(
   "here", "arrow", "dplyr", "archive", "aws.s3", "data.table", "aws.signature", "duckdb", "DBI", "validate", "writexl", "glue"
 )
-# Imp
+# Importa pacotes selecionados
+importar_pacotes(pacotes)
