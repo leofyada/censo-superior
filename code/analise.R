@@ -23,6 +23,19 @@ dt_ibge_filtrada <- dt_ibge %>%
 #- Padronização dos nomes dos municípios - 
 #-----------------------------------------
 
+# Ajuste de 1 regional para 2 municípios
+dt_regionais <- dt_regionais %>% 
+  filter(!(municipio %in% c("Olinda e Paulista", "Moreno e São Lourenço da Mata"))) 
+
+regional_dupla <- tibble(
+  UF=c("PE", "PE", "PE", "PE"),
+  regional=c("METROPOLITANA NORTE", "METROPOLITANA NORTE", "METROPOLITANA SUL", "METROPOLITANA SUL"),
+  municipio=c("Olinda", "Paulista", "Moreno", "São Lourenço da Mata")
+) 
+
+dt_regionais <- rbind(dt_regionais, regional_dupla)
+  
+
 # Ajuste de municípios
 dt_regionais <- dt_regionais %>% 
   mutate(
@@ -71,8 +84,69 @@ dt_regionais <- dt_regionais %>%
       municipio=="olho dagua das cunhas" & UF=="MA" ~ "Olho d'Água das Cunhãs",
       municipio=="ipanguassu" & UF=="RN" ~ "Ipanguaçu",
       municipio=="peri-mirim" & UF=="MA" ~ "Peri Mirim",
+      municipio=="GUARIBAS DO PIAUI" & UF=="PI" ~ "Guaribas",
+      municipio=="venha ver" & UF=="RN" ~ "Venha-Ver",
+      municipio=="Várze Alegre" & UF=="CE" ~ "Várzea Alegre",
+      municipio=="TANQUES DO PIAUI" & UF=="PI" ~ "Tanque do Piauí",
+      municipio=="TAMBORIL" & UF=="PI" ~ "Tamboril do Piauí",
+      municipio=="tabuleiro grande" & UF=="RN" ~ "Taboleiro Grande",
+      municipio=="SÍTIO D ABADIA" & UF=="GO" ~ "Sítio d'Abadia",
+      municipio=="senador georgino" & UF=="RN" ~ "Senador Georgino Avelino",
+      municipio=="são mateus" & UF=="MA" ~ "São Mateus do Maranhão",
+      municipio=="são luiz gonzaga do maranhao" & UF=="MA" ~ "São Luís Gonzaga do Maranhão",
+      municipio=="SAO LUIS" & UF=="PI" ~ "São Luís do Piauí",
+      municipio=="são jose de campestre" & UF=="RN" ~ "São José do Campestre",
+      municipio=="SAO JOAO VARJOTA" & UF=="PI" ~ "São João da Varjota",
+      municipio=="SÃO JOÃO D ALIANÇA" & UF=="GO" ~ "São João d'Aliança",
+      municipio=="SAO F. DE ASSIS DO PIAUI" & UF=="PI" ~ "São Francisco de Assis do Piauí",
+      municipio=="são domingos" & UF=="MA" ~ "São Domingos do Maranhão",
+      municipio=="São Braz" & UF=="AL" ~ "São Brás",
+      municipio=="santo amaro" & UF=="MA" ~ "Santo Amaro do Maranhão",
+      municipio=="SANTA TERESINHA" & UF=="BA" ~ "Santa Terezinha",
+      municipio=="santa filomena" & UF=="MA" ~ "Santa Filomena do Maranhão",
+      municipio=="santa Bárbara" & UF=="PA" ~ "Santa Bárbara do Pará",
+      municipio=="Rui Palmeira" & UF=="AL" ~ "Senador Rui Palmeira",
+      municipio=="são Geraldo do araguaia e" & UF=="PA" ~ "São Geraldo do Araguaia",
+      municipio=="RIBEIRA" & UF=="PI" ~ "Ribeira do Piauí",
+      municipio=="presidente medice" & UF=="MA" ~ "Presidente Médici",
+      municipio=="PORTO ALEGRE" & UF=="PI" ~ "Porto Alegre do Piauí",
+      municipio=="Porto de Pedra" & UF=="AL" ~ "Porto de Pedras",
+      municipio=="pindare" & UF=="MA" ~ "Pindaré-Mirim",
+      municipio=="Pau-d'Arco" & UF=="TO" ~ "Pau D'Arco",
+      municipio=="Olho D`Água Grande" & UF=="AL" ~ "Olho d'Água Grande",
+      municipio=="PAU D'ARCO" & UF=="PI" ~ "Pau D'Arco do Piauí",
+      municipio=="Olho D`Água do Casado" & UF=="AL" ~ "Olho d'Água do Casado",
+      municipio=="olho dagua dos borges" & UF=="RN" ~ "Olho d'Água do Borges",
+      municipio=="OLHO DAGUA" & UF=="PI" ~ "Olho d'Água do Piauí",
+      municipio=="N.S.DE NAZARE" & UF=="PI" ~ "Nossa Senhora de Nazaré",
+      municipio=="NOVO SANTO ANTONIO DO PIAUI" & UF=="PI" ~ "Novo Santo Antônio",
+      municipio=="Nova Estrela" & UF=="RO" ~ "Rolim de Moura",
+      municipio=="MORRO DO CHAPEU" & UF=="PI" ~ "Morro do Chapéu do Piauí",
+      municipio=="MORRO CABECA DO TEMPO" & UF=="PI" ~ "Morro Cabeça no Tempo",
+      municipio=="MADEIROS" & UF=="PI" ~ "Madeiro",
+      municipio=="luiz gomes" & UF=="RN" ~ "Luís Gomes",
+      municipio=="llhota" & UF=="SC" ~ "Ilhota",
+      municipio=="lajes pintada" & UF=="RN" ~ "Lajes Pintadas",
+      municipio=="LAGOINHA" & UF=="PI" ~ "Lagoinha do Piauí",
+      municipio=="LAGOA DO SAO FRANCISCO" & UF=="PI" ~ "Lagoa de São Francisco",
+      municipio=="LAGOA DO BARRO" & UF=="PI" ~ "Lagoa do Barro do Piauí",
+      municipio=="JUREMA DO PIAUI" & UF=="PI" ~ "Jurema",
+      municipio=="JUAZEIRO" & UF=="PI" ~ "Juazeiro do Piauí",
+      municipio=="ITAPORANGA D AJUDA" & UF=="SE" ~ "Itaporanga d'Ajuda",
+      municipio=="Itamaracá" & UF=="PE" ~ "Ilha de Itamaracá",
+      municipio=="Herval d Oeste" & UF=="SC" ~ "Herval d'Oeste",
+      municipio=="MASSAPE" & UF=="PI" ~ "Massapê do Piauí",
+      municipio=="lagoa de pedra" & UF=="RN" ~ "Lagoa de Pedras",
+      municipio=="rui barbosa" & UF=="RN" ~ "Ruy Barbosa",
+      municipio=="Massagueira" & UF=="AL" ~ "Marechal Deodoro",
       
-
+      
+      municipio=="arez" & UF=="RN" ~ "Arês",
+      municipio=="Vitor Meirelles" & UF=="SC" ~ "Vitor Meireles",
+      (regional=="PORTO VELHO" | regional=="EXTREMA") & UF=="RO" ~ "Porto Velho",
+      regional=="BURITIS" & UF=="RO" ~ "Buritis",
+      regional=="CACOAL" & UF=="RO" ~ "Cacoal",
+      
       
       .default = municipio
     )
@@ -101,14 +175,14 @@ dt_regionais_padronizada <- merge(x=dt_regionais_padronizada, y=dt_ibge_filtrada
 # Municípios não encontrados na base de dados do IBGE
 dt_regionais_nidentificado <- dt_regionais_padronizada %>% filter(is.na(no_municipio)) %>% select(UF, regional, municipio)
 nrow(dt_regionais_nidentificado)
-View(dt_regionais_nidentificado)
 
 # Remoção de arquivos
-rm(dt_regionais, dt_ibge, dt_ibge_filtrada, dt_ibge_filtrada_padronizada, dt_regionais_padronizada, dt_regionais_nidentificado)
+rm(dt_regionais, dt_ibge, dt_ibge_filtrada, dt_ibge_filtrada_padronizada, dt_regionais_padronizada)
 # Limpeza do ambiente
 gc()
 
-
-
+# Exportação de dados de regionais
+writexl::write_xlsx(x=dt_regionais_padronizada_limpa %>% select(co_municipio, no_municipio, municipio, regional, UF) %>% arrange(co_municipio), path=here("data", "prata", "regionais.xlsx"))
+writexl::write_xlsx(x=dt_regionais_nidentificado, path=here("data", "prata", "regionais_nidentificada.xlsx"))
 
 
