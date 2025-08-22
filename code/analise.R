@@ -139,15 +139,11 @@ dt_regionais <- dt_regionais %>%
       municipio=="lagoa de pedra" & UF=="RN" ~ "Lagoa de Pedras",
       municipio=="rui barbosa" & UF=="RN" ~ "Ruy Barbosa",
       municipio=="Massagueira" & UF=="AL" ~ "Marechal Deodoro",
-      
-      
       municipio=="arez" & UF=="RN" ~ "Arês",
       municipio=="Vitor Meirelles" & UF=="SC" ~ "Vitor Meireles",
       (regional=="PORTO VELHO" | regional=="EXTREMA") & UF=="RO" ~ "Porto Velho",
       regional=="BURITIS" & UF=="RO" ~ "Buritis",
       regional=="CACOAL" & UF=="RO" ~ "Cacoal",
-      
-      
       .default = municipio
     )
   )
