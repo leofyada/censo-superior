@@ -19,9 +19,13 @@ funcao_carregamento <- function() {
     arrow::write_dataset(dataset = micro_cur, path = "s3://profissaodocente-inepdata-s3/inep/bronze/microsuperior2023_cur", format = "parquet", partitioning = c("TP_MODALIDADE_ENSINO"))
     arrow::write_dataset(dataset = micro_ies, path = "s3://profissaodocente-inepdata-s3/inep/bronze/microsuperior2023_ies", format = "parquet")
     cat("Dados carregados para S3 com sucesso!\n")
+    # Exclui pasta zip 
+    file.remove(here("data", "bronze", "censosuperior_23.zip"))
+    # Exclui arquivos da pasta local
+    unlink(here("data", "bronze", "unzip"), recursive = TRUE)
   }, error = function(e) {
     # Erro
-    cat("Ocorrou o seguinte erro:", conditionMessage(e), "\n")
+    cat("Ocorreu o seguinte erro:", conditionMessage(e), "\n")
   }, warning = function(w) {
     # Aviso
     cat("Um aviso apareceu:", conditionMessage(w), "\n")

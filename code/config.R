@@ -6,7 +6,7 @@
 importar_pacotes <- function(pacotes) {
   for (pacote in pacotes) {
     if (!require(pacote, character.only = TRUE)) {
-      message(paste("Pacote", pacote, "não encontrado. Instalando..."))
+      message(paste("Pacote", pacote, "não encontrado."))
     } else {
       message(paste("Pacote", pacote, "carregado com sucesso."))
     }
@@ -18,3 +18,5 @@ pacotes <- c(
  )
 # Importa pacotes selecionados
 importar_pacotes(pacotes)
+
+

@@ -144,8 +144,6 @@ dt_regionais <- dt_regionais %>%
       (regional=="PORTO VELHO" | regional=="EXTREMA") & UF=="RO" ~ "Porto Velho",
       regional=="BURITIS" & UF=="RO" ~ "Buritis",
       regional=="CACOAL" & UF=="RO" ~ "Cacoal",
-      
-      
       .default = municipio
     )
   )
