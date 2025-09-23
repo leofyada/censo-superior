@@ -10,7 +10,7 @@ source(here("code", "transformacao.R"))
 source(here("code", "validacao.R"))
 
 # Caminho dos dados do Censo da Educação Superior
-caminho_censosuperior <- "https://download.inep.gov.br/microdados/microdados_censo_da_educacao_superior_2023.zip"
+caminho_censosuperior <- "https://download.inep.gov.br/microdados/microdados_censo_da_educacao_superior_2024.zip"
 
 # Criação de função do pipeline de dados
 funcao_pipeline <- function(caminho_censosuperior) {

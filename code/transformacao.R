@@ -33,7 +33,7 @@ funcao_transformacao <- function() {
             SUM(QT_MAT) AS 'QT_MAT',
             SUM(QT_ING) AS 'QT_ING',
             SUM(QT_CURSO) AS 'QT_CURSO'
-          FROM read_parquet('s3://profissaodocente-inepdata-s3/inep/bronze/microsuperior2023_cur/TP_MODALIDADE_ENSINO=2/part-0.parquet')
+          FROM read_parquet('s3://profissaodocente-inepdata-s3/inep/bronze/microsuperior2024_cur/TP_MODALIDADE_ENSINO=2/part-0.parquet')
           GROUP BY 
             CO_IES, 
             NO_CURSO, 
@@ -59,7 +59,7 @@ funcao_transformacao <- function() {
             CO_IES,
             NO_IES,
             SG_IES
-          FROM read_parquet('s3://profissaodocente-inepdata-s3/inep/bronze/microsuperior2023_ies/part-0.parquet')
+          FROM read_parquet('s3://profissaodocente-inepdata-s3/inep/bronze/microsuperior2024_ies/part-0.parquet')
         )
         SELECT 
           CO_UF_IES,

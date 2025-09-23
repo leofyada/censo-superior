@@ -5,7 +5,7 @@
 # Função que realiza o download dos dados do Censo e extrai os dados do ZIP
 funcao_extracao <- function(caminho_censosuperior) {
   # Definição do destino da pasta 
-  destino_censosuperior <- here("data", "bronze", "censosuperior_23.zip")
+  destino_censosuperior <- here("data", "bronze", "censosuperior_24.zip")
   # Download e unzip dos dados
   tryCatch({
     # Download dos dados
@@ -24,6 +24,4 @@ funcao_extracao <- function(caminho_censosuperior) {
     cat("Um aviso apareceu:", conditionMessage(w), "\n")
   })
 }
-
-
 
