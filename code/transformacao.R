@@ -14,6 +14,13 @@ funcao_transformacao <- function() {
       "
         WITH tab_cursos AS (
           SELECT 
+            NO_REGIAO,
+            CO_REGIAO,
+            NO_UF,
+            SG_UF,
+            CO_UF,
+            NO_MUNICIPIO,
+            CO_MUNICIPIO,
             CO_IES, 
             NO_CURSO, 
             CO_CURSO, 
@@ -35,6 +42,13 @@ funcao_transformacao <- function() {
             SUM(QT_CURSO) AS 'QT_CURSO'
           FROM read_parquet('s3://profissaodocente-inepdata-s3/inep/bronze/microsuperior2024_cur/TP_MODALIDADE_ENSINO=2/part-0.parquet')
           GROUP BY 
+            NO_REGIAO,
+            CO_REGIAO,
+            NO_UF,
+            SG_UF,
+            CO_UF,
+            NO_MUNICIPIO,
+            CO_MUNICIPIO,
             CO_IES, 
             NO_CURSO, 
             CO_CURSO, 
@@ -69,6 +83,13 @@ funcao_transformacao <- function() {
           tab_ies.CO_IES,
           NO_IES,
           SG_IES,
+          NO_REGIAO,
+          CO_REGIAO,
+          NO_UF,
+          SG_UF,
+          CO_UF,
+          NO_MUNICIPIO,
+          CO_MUNICIPIO,
           NO_CURSO, 
           CO_CURSO, 
           CO_CINE_AREA_GERAL, 

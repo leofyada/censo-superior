@@ -28,4 +28,21 @@ funcao_validacao <- function(df_prata) {
   cat("Dados exportados com sucesso!")
 }
 
+#-------------------------
+#- Geração da base final - 
+#-------------------------
+
+df_final <- df_prata %>% 
+  filter(TP_DIMENSAO %in% c(2, 3) & !(is.na(CO_MUNICIPIO))) %>% 
+  group_by(
+    SG_UF_IES, CO_MUNICIPIO_IES, NO_MUNICIPIO_IES, SG_UF, NO_UF, CO_UF, CO_MUNICIPIO, NO_MUNICIPIO
+  ) %>% 
+  reframe(
+    QT_MAT = sum(QT_MAT, na.rm=T),
+    QT_CONC_TOTAL = sum(QT_CONC_TOTAL, na.rm=T),
+    QT_ING = sum(QT_ING, na.rm=T)
+  ) 
+
+writexl::write_xlsx(x=df_final, path="data/20250925_base_polos.xlsx")
+
 

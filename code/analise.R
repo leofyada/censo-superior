@@ -6,9 +6,9 @@
 source("code/config.R")
 
 # Importação dos dados do IBGE e de regionais (PD)
-dt_regionais <- data.table::fread("/Users/leonardoyada/OneDrive/Pé-de-Meia Licenciatura - PD/regionais_municipios.csv")
+dt_regionais <- data.table::fread("C:/Users/leona/OneDrive/Pé-de-Meia Licenciatura - PD/regionais_municipios.csv")
 # Importação da base de dados do IBGE
-dt_ibge <- readxl::read_xls("/Users/leonardoyada/OneDrive/DTB_2024/RELATORIO_DTB_BRASIL_2024_MUNICIPIOS.xls", skip = 5)
+dt_ibge <- readxl::read_xls("C:/Users/leona/OneDrive/DTB_2024/RELATORIO_DTB_BRASIL_2024_MUNICIPIOS.xls", skip = 5)
 # Exclusão da última coluna (sem dados)
 dt_ibge_filtrada <- dt_ibge %>% 
   select(UF, Nome_UF, `Código Município Completo`, Nome_Município) %>% 
@@ -18,6 +18,7 @@ dt_ibge_filtrada <- dt_ibge %>%
     "co_municipio" = "Código Município Completo",
     "no_municipio" = "Nome_Município"
   )
+
 
 #-----------------------------------------
 #- Padronização dos nomes dos municípios - 
